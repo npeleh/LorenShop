@@ -48,25 +48,82 @@ app.controller('manCtrl', function ($scope, $http) {
     $scope.brand = function (x) {
         $scope.myBrand = x;
     };
+    $scope.price = function (x, y) {
+        $scope.min = x;
+        $scope.max = y;
+    };
 
 
+    $scope.man_products_size_xs = function () {
+        $http.get('http://192.168.33.10/index.php/man_products_size_xs')
+            .then(function(response) {
+                $scope.product_man = response.data;
+            });
+    }
+
+    $scope.man_products_size_s = function () {
+        $http.get('http://192.168.33.10/index.php/man_products_size_s')
+            .then(function(response) {
+                $scope.product_man = response.data;
+            });
+    }
+
+    $scope.man_products_size_m = function () {
+        $http.get('http://192.168.33.10/index.php/man_products_size_m')
+            .then(function(response) {
+                $scope.product_man = response.data;
+            });
+    }
+
+    $scope.man_products_size_l = function () {
+        $http.get('http://192.168.33.10/index.php/man_products_size_l')
+            .then(function(response) {
+                $scope.product_man = response.data;
+            });
+    }
+
+    $scope.man_products_size_xl = function () {
+        $http.get('http://192.168.33.10/index.php/man_products_size_xl')
+            .then(function(response) {
+                $scope.product_man = response.data;
+            });
+    }
+
+    var color = document.getElementById("color");
     var check_color = document.getElementsByClassName("color_contaiter");
     for (let i=0; i<check_color.length; i++){
         check_color[i].onclick = function () {
+            color.style.display = "inline-block";
             for(let j=0; j<check_color.length; j++){
                 check_color[j].classList.remove('check_border');
             }
             check_color[i].classList.add('check_border');
         }
     }
+    color.onclick = function () {
+        color.style.display = "none";
+        for(let j=0; j<check_color.length; j++){
+            check_color[j].classList.remove('check_border');
+        }
+    }
 
+    var size = document.getElementById("size");
     var check_size = document.getElementsByClassName("size_box");
     for (let i=0; i<check_size.length; i++){
         check_size[i].onclick = function () {
+            size.style.display = "inline-block";
             for(let j=0; j<check_size.length; j++){
                 check_size[j].classList.remove('check_border');
             }
             check_size[i].classList.add('check_border');
         }
     }
+    size.onclick = function () {
+        size.style.display = "none";
+        for(let j=0; j<check_size.length; j++){
+            check_size[j].classList.remove('check_border');
+        }
+    }
+
+
 })
