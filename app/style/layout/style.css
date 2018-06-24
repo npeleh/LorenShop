@@ -1221,13 +1221,13 @@ input[type="radio"]:checked + label {
 
 .checkmark {
     position: absolute;
-    top: 0;
+    top: 3px;
     left: 0;
-    height: 20px;
-    width: 20px;
+    height: 10px;
+    width: 10px;
     border-radius: 50%;
     background-color: #fff;
-    border: 1px solid #e0e0e0;
+    border: 1px solid #696969;
 }
 
 .checkmark:after {
@@ -1240,16 +1240,16 @@ input[type="radio"]:checked + label {
     display: block;
 }
 
-.container .checkmark:after {
-    left: 6px;
-    top: 1px;
-    width: 5px;
-    height: 10px;
-    border: 1px solid #181818;
-    border-width: 0 3px 3px 0;
-    -webkit-transform: rotate(45deg);
-    transform: rotate(45deg);
-}
+/*.container .checkmark:after {*/
+    /*left: 6px;*/
+    /*top: 1px;*/
+    /*width: 5px;*/
+    /*height: 10px;*/
+    /*border: 1px solid #181818;*/
+    /*border-width: 0 3px 3px 0;*/
+    /*-webkit-transform: rotate(45deg);*/
+    /*transform: rotate(45deg);*/
+/*}*/
 
 .container:last-of-type {
     padding-bottom: 9px;
@@ -2215,4 +2215,11 @@ i.fa-plus {
 
 .check_circle{
     list-style-type: disc !important;
+}
+
+.stop_filter{
+    font-size: 17px;
+    color: #e11687;
+    cursor: pointer;
+    display: none;
 }

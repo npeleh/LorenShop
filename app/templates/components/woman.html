@@ -27,7 +27,7 @@
         <div class="shop_container">
             <p>Shop by</p>
             <ul>
-                <li>Color</li>
+                <li>Color &nbsp;<span class="stop_filter" ng-click="color('')" id="color">&#10006;</span></li>
                 <div class="category_color">
                     <div  class="color_box9 color_contaiter" ng-click="color('khaki')"></div>
                     <div  class="color_box1 color_contaiter" ng-click="color('red')"></div>
@@ -43,49 +43,49 @@
                 </div>
 
 
-                <li>Size</li>
+                <li>Size &nbsp;<span class="stop_filter" id="size">&#10006;</span></li>
                 <div class="category_size">
-                    <div  class="size_box">XS</div>
-                    <div  class="size_box">S</div>
-                    <div  class="size_box">M</div>
-                    <div  class="size_box">L</div>
-                    <div  class="size_box">XL</div>
+                    <div class="size_box" ng-click="woman_products_size_xs()">XS</div>
+                    <div class="size_box" ng-click="woman_products_size_s()">S</div>
+                    <div class="size_box" ng-click="woman_products_size_m()">M</div>
+                    <div class="size_box" ng-click="woman_products_size_l()">L</div>
+                    <div class="size_box" ng-click="woman_products_size_xl()">XL</div>
                 </div>
 
 
 
-                <li>Price</li>
-                <label class="container">Below $100
-                    <input type="radio" name="radio_p">
+                <li>Price &nbsp;<span class="stop_filter" id="price" ng-click="price('', '')">&#10006;</span></li>
+                <label class="container" ng-click="price(0, 100)">Below $100
+                    <input type="radio" name="radio_p" class="radio_price">
                     <span class="checkmark"></span>
                 </label>
 
-                <label class="container">$100 - $200
-                    <input type="radio" name="radio_p">
+                <label class="container" ng-click="price(100, 200)">$100 - $200
+                    <input type="radio" name="radio_p" class="radio_price">
                     <span class="checkmark"></span>
                 </label>
 
-                <label class="container">$200 - $300
-                    <input type="radio" name="radio_p">
+                <label class="container" ng-click="price(200, 300)">$200 - $300
+                    <input type="radio" name="radio_p" class="radio_price">
                     <span class="checkmark"></span>
                 </label>
 
-                <label class="container">$300 - $400
-                    <input type="radio" name="radio_p">
+                <label class="container" ng-click="price(300, 400)">$300 - $400
+                    <input type="radio" name="radio_p" class="radio_price">
                     <span class="checkmark"></span>
                 </label>
-                <label class="container">$400 - $500
-                    <input type="radio" name="radio_p">
+                <label class="container" ng-click="price(400, 500)">$400 - $500
+                    <input type="radio" name="radio_p" class="radio_price">
                     <span class="checkmark"></span>
                 </label>
-                <label class="container">About $500
-                    <input type="radio" name="radio_p">
+                <label class="container" ng-click="price(500, 1000)">About $500
+                    <input type="radio" name="radio_p" class="radio_price">
                     <span class="checkmark"></span>
                 </label>
 
 
 
-                <li>Brand</li>
+                <li>Brand &nbsp;<span class="stop_filter" ng-click="brand('')" id="brand">&#10006;</span></li>
                 <label class="container" ng-click="brand('Louis Vuitton')">Louis Vuitton
                     <input type="radio" name="radio_b">
                     <span class="checkmark"></span>
@@ -125,7 +125,7 @@
 
     <div class="product_container_woman">
         <a href="#!/single_product/{{product.id_product}}" class="product_container id_product" data-id="{{product.id_product}}"
-           ng-repeat="product in product_woman | filter: {'color':myColor, 'brand':myBrand}">
+           ng-repeat="product in product_woman | filter: {'color':myColor, 'brand':myBrand} | minMaxPrice:min:max">
 				<img ng-src="/img/{{product.image}}">
 				<p>{{product.brand}}</p>
 				<p>{{product.name}}</p>

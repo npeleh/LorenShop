@@ -91,6 +91,7 @@ gulp.task('watch', function () {
 	gulp.watch('app/templates/**/*.html', ['html']);
 	gulp.watch('app/img/**/*', ['image']);
 	gulp.watch('app/js/**/*.js', ['uglify']);
+	gulp.watch('app/js/**/*.js', ['scripts']);
 	gulp.watch('app/*.html').on('change', browserSync.reload);
 });
 
