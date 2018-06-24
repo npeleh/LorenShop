@@ -32,7 +32,7 @@ serverDomain.run(function() {
         res.send('Welcome to my site :D');
     });
 
-    app.use(express.bodyParser());
+  
 
 
 

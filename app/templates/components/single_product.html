@@ -1,4 +1,4 @@
-<div class="single_product">
+<div ng-controller="singleCtrl as ctrl" class="single_product">
     <img ng-src="/img/{{single_product.image}}" alt="">
     <div class="description">
         <h3>{{single_product.brand}}</h3>
@@ -33,7 +33,7 @@
             <span id="current_quantity">{{current_quantity}}</span>
             <button ng-click="increaseProduct()" class="increase_product"><i class="fa fa-plus"></i></button>
         </div>
-        <a href="#!/cart"><button class="pink_button">Add to cart</button></a>
+        <a href="#!/cart"><button class="pink_button" ng-click="ctrl.saveCartItem()">Add to cart</button></a>
         <p>{{single_product.description}}</p>
     </div>
 </div>
