@@ -1,0 +1,25 @@
+var express = require("express");
+var sql = require("mssql");
+var manCategoriesRouter = express.Router();
+
+var execQuery = function (query, res) {
+    var request = new sql.Request();
+    request.query(query, function (err, ress) {
+        if (err) {
+            console.log("Error while querying database :- " + err);
+            res.send(err);
+        }
+        else {
+            res.send(ress);
+        }
+    });
+}
+
+manCategoriesRouter.get("/", function(req , res){
+    var query = "SELECT * FROM Categories WHERE id_sex_category=2";
+    execQuery(query, res);
+});
+
+
+module.exports = manCategoriesRouter;
+

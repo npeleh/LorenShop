@@ -1,0 +1,45 @@
+<div class="cart">
+    <h1>Cart</h1>
+    <div class="cart_container">
+        <div class="cart_title">
+            <h3>Product</h3>
+            <div class="cart_wrapper">
+                <h3>Price</h3>
+                <h3>Quantity</h3>
+                <h3>Subtotal</h3>
+            </div>
+            <p> </p>
+        </div>
+        <div class="cart_item">
+            <div class="product">
+                <a href="#!/single_product">
+                    <img id="imageproduct_cart" src="/img/t-shirt.jpg" alt="">
+                </a>
+                <div class="product_description">
+                    <h3 id="brand_cart">Racovich</h3>
+                    <a href="#!/single_product">
+                        <h2 id="productname_cart">The Storm</h2>
+                    </a>
+                    <span>Size: </span>
+                    <span id="size_cart">S</span>
+                </div>
+            </div>
+            <div class="price">
+                <h2 id="price">€9.00</h2>
+            </div>
+            <div class="cart_quantity_block">
+                <button class="decrease_product" ng-click="decreaseProduct()"><i class="fa fa-minus"></i></button>
+                <span id="cart_current_quantity">{{current_quantity}}</span>
+                <button class="increase_product" ng-click="increaseProduct()"><i class="fa fa-plus"></i></button>
+            </div>
+            <div class="subtotal">
+                <h2 id="subtotal">€9.00</h2>
+            </div>
+            <div id="cart_close_button"><i class="fa fa-close" style="font-size:24px"></i></div>
+        </div>
+    </div>
+    <div class="go_to_checkout">
+        <span class="total_price">€55.00</span>
+        <a href="#!/customer_information"><button class="pink_button">checkout</button></a>
+    </div>
+</div>

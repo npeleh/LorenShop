@@ -1,0 +1,31 @@
+var express = require("express");
+var sql = require("mssql");
+var productCategoriesRouter = express.Router();
+
+var execQuery = function (query, res) {
+    var request = new sql.Request();
+    request.query(query, function (err, ress) {
+        if (err) {
+            console.log("Error while querying database :- " + err);
+            res.send(err);
+        }
+        else {
+            res.send(ress);
+        }
+    });
+}
+
+var adr = 2;
+productCategoriesRouter.get("/", function(req , res){
+    var query = "SELECT * FROM  Products WHERE id_category="+ sql.escape(adr);
+    execQuery(query, res);
+});
+
+
+module.exports = productCategoriesRouter;
+
+// var sql = 'SELECT * FROM customers WHERE address = ' + mysql.escape(adr);
+// con.query(sql, function (err, result) {
+//   if (err) throw err;
+//   console.log(result);
+// });

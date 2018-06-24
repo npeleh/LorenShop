@@ -1,0 +1,25 @@
+var express = require("express");
+var sql = require("mssql");
+var manProductsRouter = express.Router();
+
+var execQuery = function (query, res) {
+    var request = new sql.Request();
+    request.query(query, function (err, ress) {
+        if (err) {
+            console.log("Error while querying database :- " + err);
+            res.send(err);
+        }
+        else {
+            res.send(ress);
+        }
+    });
+}
+
+manProductsRouter.get("/", function(req , res){
+    var query = "SELECT Products.id_product, Products.name, Products.image, Products.brand, Products.price, Products.color, Products.description, Products.id_category, ProductDetails.size, Categories.id_sex_category FROM Products INNER JOIN Categories ON Categories.id_category = Products.id_category INNER JOIN ProductDetails ON Products.id_product=ProductDetails.id_product WHERE Categories.id_sex_category=2";
+    execQuery(query, res);
+});
+
+
+module.exports = manProductsRouter;
+
