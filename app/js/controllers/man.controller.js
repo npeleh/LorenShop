@@ -174,4 +174,9 @@ app.controller('manCtrl', function ($scope, $http) {
             document.getElementsByClassName('checkmark1')[j].style.backgroundColor = "#fff";
         }
     }
+
+    var dropdown_btn = document.getElementsByClassName('dropdown-btn')[1];
+        dropdown_btn.onclick = function () {
+            dropdown_btn.style.listStyleType = "disc";
+        }
 })

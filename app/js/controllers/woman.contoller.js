@@ -177,6 +177,39 @@ app.controller('womanCtrl', function ($scope, $http) {
     }
 
 
+    var dropdown_btn = document.getElementsByClassName('dropdown-btn')[0];
+    dropdown_btn.onclick = function () {
+        dropdown_btn.style.listStyleType = "disc";
+    }
+
+
+
+    // setTimeout(function() {
+    //     var w_category = document.getElementsByClassName('w_category');
+    //     console.log(w_category.length);
+    //     for (let i = 0; i < w_category.length; i++) {
+    //         w_category[i].onclick = function () {
+    //             for (let j = 0; j < w_category.length; j++) {
+    //                 document.getElementsByClassName('w_category')[j].style.listStyleType = "circle";
+    //             }
+    //             document.getElementsByClassName('w_category')[i].style.listStyleType = "disc";
+    //         }
+    //     }
+    // }, 597);
+
+    // var m_category = document.getElementsByClassName('m_category');
+    // for (let i=0; i<m_category.length; i++){
+    //     m_category[i].onclick = function () {
+    //         for(let j=0; j<m_category.length; j++){
+    //             document.getElementsByClassName('m_category')[j].style.listStyleType = "circle";
+    //         }
+    //         document.getElementsByClassName('m_category')[i].style.listStyleType = "disc";
+    //     }
+    // }
+
+
+
+
 
 })
 app.filter("minMaxPrice", function () {

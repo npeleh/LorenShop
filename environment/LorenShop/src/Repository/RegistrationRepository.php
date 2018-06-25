@@ -11,7 +11,7 @@ class RegistrationRepository
 
 
 
-        //????????????????????????????????
+
         $result = $db->query("SELECT * FROM Users")->fetchAll();
 
         return $result;
@@ -36,14 +36,15 @@ class RegistrationRepository
         }
 
     }
-    // public function findAllManCategories(): array {
-    //     $db = SingletonDbConnector::connect();
 
-    //     $result = $db->query("SELECT * FROM Categories WHERE id_sex_category=2")->fetchAll();
 
-    //     return $result;
-    // }
+    public function findRegisteredUser(): array {
+        $db = SingletonDbConnector::connect();
 
+        $result = $db->query("SELECT * FROM Users" )->fetchAll();
+
+        return $result;
+    }
     /**
      * @param int $id
      * @return array

@@ -1964,7 +1964,8 @@ i.fa-plus {
     outline: none;
 }
 
-#register_form .register_button:hover {
+#register_form .register_button:hover,
+.login .box_button_wrapper button:hover {
     background: #9b0f5d;
 }
 
@@ -2099,6 +2100,7 @@ i.fa-plus {
     outline: none;
     width: 220px;
 }
+
 
 .login .register_link {
     font-size: 16px;

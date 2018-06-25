@@ -19,6 +19,8 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) u
     $r->addRoute('GET', $prefix . '/woman_products300_400', 'Product_productWomanPriceFour');
     $r->addRoute('GET', $prefix . '/woman_products400_500', 'Product_productWomanPriceFive');
     $r->addRoute('GET', $prefix . '/woman_products500', 'Product_productWomanPriceSix');
+
+    $r->addRoute('GET', $prefix . '/registered_users', 'Registration_registeredUser');
     
     $r->addRoute('GET', $prefix . '/man_products_size_xs', 'Product_productManSizeXS');
     $r->addRoute('GET', $prefix . '/man_products_size_s', 'Product_productManSizeS');
