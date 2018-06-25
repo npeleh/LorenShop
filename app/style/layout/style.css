@@ -1219,7 +1219,8 @@ input[type="radio"]:checked + label {
     cursor: pointer;
 }
 
-.checkmark {
+.checkmark,
+.checkmark1 {
     position: absolute;
     top: 3px;
     left: 0;
@@ -1230,13 +1231,15 @@ input[type="radio"]:checked + label {
     border: 1px solid #696969;
 }
 
-.checkmark:after {
+.checkmark:after,
+.checkmark1:after {
     content: "";
     position: absolute;
     display: none;
 }
 
-.container input:checked ~ .checkmark:after {
+.container input:checked ~ .checkmark:after,
+.container input:checked ~ .checkmark1:after {
     display: block;
 }
 

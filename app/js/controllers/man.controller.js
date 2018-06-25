@@ -17,7 +17,20 @@ app.controller('manCtrl', function ($scope, $http) {
             "description": arrayOfElements[0].description, 
             "id_category": arrayOfElements[0].id_category, 
             "sizes": arrayOfElements.map(element => element.size)}));
-            // console.log($scope.product_man);
+
+            $scope.man_products_no_size = function () {
+                $scope.product_man = result.map(arrayOfElements => ({
+                    "id_product": arrayOfElements[0].id_product,
+                    "name": arrayOfElements[0].name,
+                    "image": arrayOfElements[0].image,
+                    "brand": arrayOfElements[0].brand,
+                    "price": arrayOfElements[0].price,
+                    "color": arrayOfElements[0].color,
+                    "description": arrayOfElements[0].description,
+                    "id_category": arrayOfElements[0].id_category,
+                    "sizes": arrayOfElements.map(element => element.size)}));
+                console.log($scope.product_man);
+            }
         });
     $http.get('http://192.168.33.10/index.php/woman')
         .then(function(response) {
@@ -126,4 +139,39 @@ app.controller('manCtrl', function ($scope, $http) {
     }
 
 
+    var price = document.getElementById("price");
+    var radio_price = document.getElementsByClassName("radio_price");
+    for (let i=0; i<radio_price.length; i++){
+        radio_price[i].onclick = function () {
+            price.style.display = "inline-block";
+            for(let j=0; j<radio_price.length; j++){
+                document.getElementsByClassName('checkmark')[j].style.backgroundColor = "#fff";
+            }
+            document.getElementsByClassName('checkmark')[i].style.backgroundColor = "#696969";
+        }
+    }
+    price.onclick = function () {
+        price.style.display = "none";
+        for(let j=0; j<radio_price.length; j++){
+            document.getElementsByClassName('checkmark')[j].style.backgroundColor = "#fff";
+        }
+    }
+
+    var brand = document.getElementById("brand");
+    var radio_brand = document.getElementsByClassName("radio_brand");
+    for (let i=0; i<radio_brand.length; i++){
+        radio_brand[i].onclick = function () {
+            brand.style.display = "inline-block";
+            for(let j=0; j<radio_brand.length; j++){
+                document.getElementsByClassName('checkmark1')[j].style.backgroundColor = "#fff";
+            }
+            document.getElementsByClassName('checkmark1')[i].style.backgroundColor = "#696969";
+        }
+    }
+    brand.onclick = function () {
+        brand.style.display = "none";
+        for(let j=0; j<radio_brand.length; j++){
+            document.getElementsByClassName('checkmark1')[j].style.backgroundColor = "#fff";
+        }
+    }
 })

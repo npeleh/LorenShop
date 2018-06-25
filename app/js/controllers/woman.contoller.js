@@ -18,7 +18,22 @@ app.controller('womanCtrl', function ($scope, $http) {
             "description": arrayOfElements[0].description,
             "id_category": arrayOfElements[0].id_category,
             "sizes": arrayOfElements.map(element => element.size)}));
-        console.log($scope.product_woman[0].sizes = "XS");
+
+
+        $scope.woman_products_no_size = function () {
+            $scope.product_woman = result.map(arrayOfElements => ({
+                "id_product": arrayOfElements[0].id_product,
+                "name": arrayOfElements[0].name,
+                "image": arrayOfElements[0].image,
+                "brand": arrayOfElements[0].brand,
+                "price": arrayOfElements[0].price,
+                "color": arrayOfElements[0].color,
+                "description": arrayOfElements[0].description,
+                "id_category": arrayOfElements[0].id_category,
+                "sizes": arrayOfElements.map(element => element.size)}));
+            console.log($scope.product_woman);
+        }
+
 
     });
 
@@ -140,6 +155,24 @@ app.controller('womanCtrl', function ($scope, $http) {
         price.style.display = "none";
         for(let j=0; j<radio_price.length; j++){
             document.getElementsByClassName('checkmark')[j].style.backgroundColor = "#fff";
+        }
+    }
+
+    var brand = document.getElementById("brand");
+    var radio_brand = document.getElementsByClassName("radio_brand");
+    for (let i=0; i<radio_brand.length; i++){
+        radio_brand[i].onclick = function () {
+            brand.style.display = "inline-block";
+            for(let j=0; j<radio_brand.length; j++){
+                document.getElementsByClassName('checkmark1')[j].style.backgroundColor = "#fff";
+            }
+            document.getElementsByClassName('checkmark1')[i].style.backgroundColor = "#696969";
+        }
+    }
+    brand.onclick = function () {
+        brand.style.display = "none";
+        for(let j=0; j<radio_brand.length; j++){
+            document.getElementsByClassName('checkmark1')[j].style.backgroundColor = "#fff";
         }
     }
 
