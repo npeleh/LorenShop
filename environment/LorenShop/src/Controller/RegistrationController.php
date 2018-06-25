@@ -26,6 +26,19 @@ class RegistrationController {
         return $registration;
 
     }
+
+    public function registeredUser() {
+
+        $registrationMapper = new RegistrationMapper(
+            new RegistrationRepository()
+        );
+
+        $product = $registrationMapper->findRegisteredUser();
+
+        return $product;
+    }
+
+
     public function RegistrationCategoryShow(int $id): Registration {
         $registrationMapper = new RegistrationMapper(new RegistrationRepository());
 
