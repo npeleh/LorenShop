@@ -1,5 +1,5 @@
 app.controller('womanCtrl', function ($scope, $http) {
-    $http.get('http://192.168.33.10/index.php/woman_products')
+    $http.get(nodeVariable + 'woman_products')
 
     .then(function(response) {
         $scope.product_woman = response.data;
@@ -48,7 +48,7 @@ app.controller('womanCtrl', function ($scope, $http) {
         $scope.max = y;
     };
 
-    $http.get('http://192.168.33.10/index.php/woman')
+    $http.get(nodeVariable + 'woman')
         .then(function(response) {
             $scope.sex_category_woman = response.data;
             setTimeout(function() {
@@ -56,7 +56,7 @@ app.controller('womanCtrl', function ($scope, $http) {
                 for(let i=0; i<$scope.id_category.length; i++){
                     $scope.id_category[i].onclick = function () {
                         $scope.id_category_attr = document.getElementsByClassName('id_category')[i].getAttribute('data-id');
-                        $http.get('http://192.168.33.10/index.php/product_categories/' + $scope.id_category_attr)
+                        $http.get(nodeVariable + 'product_categories/' + $scope.id_category_attr)
                             .then(function(response) {
                                 $scope.product_woman = response.data;
                             });
@@ -64,7 +64,7 @@ app.controller('womanCtrl', function ($scope, $http) {
                 }
             }, 0);
         });
-    $http.get('http://192.168.33.10/index.php/man')
+    $http.get(nodeVariable + 'man')
         .then(function(response) {
             $scope.sex_category_man = response.data;
         });
@@ -175,39 +175,6 @@ app.controller('womanCtrl', function ($scope, $http) {
             document.getElementsByClassName('checkmark1')[j].style.backgroundColor = "#fff";
         }
     }
-
-
-    var dropdown_btn = document.getElementsByClassName('dropdown-btn')[0];
-    dropdown_btn.onclick = function () {
-        dropdown_btn.style.listStyleType = "disc";
-    }
-
-
-
-    // setTimeout(function() {
-    //     var w_category = document.getElementsByClassName('w_category');
-    //     console.log(w_category.length);
-    //     for (let i = 0; i < w_category.length; i++) {
-    //         w_category[i].onclick = function () {
-    //             for (let j = 0; j < w_category.length; j++) {
-    //                 document.getElementsByClassName('w_category')[j].style.listStyleType = "circle";
-    //             }
-    //             document.getElementsByClassName('w_category')[i].style.listStyleType = "disc";
-    //         }
-    //     }
-    // }, 597);
-
-    // var m_category = document.getElementsByClassName('m_category');
-    // for (let i=0; i<m_category.length; i++){
-    //     m_category[i].onclick = function () {
-    //         for(let j=0; j<m_category.length; j++){
-    //             document.getElementsByClassName('m_category')[j].style.listStyleType = "circle";
-    //         }
-    //         document.getElementsByClassName('m_category')[i].style.listStyleType = "disc";
-    //     }
-    // }
-
-
 
 
 

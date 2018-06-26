@@ -1,16 +1,16 @@
-<div class="login">
+<div class="login" ng-controller="loginCtrl">
     <h1>LOGIN</h1>
     <div class="box-content">
         <form id="customer_login">
             <p class="form_instructions">Please enter your e-mail and password:</p>
             <div class="form_control">
-                <input type="e-mail" class="form_input" required="required" placeholder="Email" ng-model="login_email">
+                <input ng-model="credentials.email" type="e-mail" class="form_input" required="required" placeholder="Email">
             </div>
             <div class="form_control">
-                <input type="password" class="form_input" required="required" placeholder="Password" ng-model="login_password">
+                <input ng-model="credentials.password" type="password" class="form_input" required="required" placeholder="Password">
             </div>
             <div class="box_button_wrapper">
-                <a class="href"><button type="submit" ng-click="users_list()">Login</button></a>
+                <a href="#!/"><button type="submit" ng-click="login()">Login</button></a>
             </div>
             <p class="register_link">
                 Don't have an account?

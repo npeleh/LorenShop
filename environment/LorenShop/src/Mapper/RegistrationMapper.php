@@ -23,21 +23,6 @@ class RegistrationMapper
     /**
      * @return array
      */
-
-    public function findRegisteredUser(): array
-    {
-        $result = $this->registrationRepository->findRegisteredUser();
-
-        $products = [];
-
-        foreach ($result as $productAssoc) {
-            $products[] = $this->mapRowToArcitle($productAssoc);
-        }
-
-        return $products;
-    }
-
-
     public function findAllRegistrationCategories(): array
     {
         $result = $this->registrationRepository->findAllRegistrationCategories();

@@ -1,8 +1,4 @@
-app.controller('homeCtrl', function ($scope, loginService) {
-
-    $scope.login_user = loginService.getName();
-    console.log($scope.login_user);
-
+app.controller('homeCtrl', function () {
     $(document).ready(function () {
         $('.header_slider').slick({
             dots: true,

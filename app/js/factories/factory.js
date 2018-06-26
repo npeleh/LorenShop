@@ -14,14 +14,18 @@ app.service('cartService', function ($http) {
     function saveCartItem(object) {
     	$http({
     		method: "POST",
-    		url: "localhost:3333/order_items",
-    		data: object,
+    		url: "http://localhost:3333/order_items",
+    		data: JSON.stringify(object),
     		timeout: 4000
     	}).then(function(success){
     		console.log("success");
-    	})
+    	}).then(function(error) {
+            console.log(error);
+        }).then(function() {
+            console.log(JSON.stringify(object));
+        });
     }
     that.saveCartItem = saveCartItem;
 
-    // return that;
+    return that;
 });
