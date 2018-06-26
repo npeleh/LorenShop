@@ -1,4 +1,7 @@
 var app = angular.module("app", ['ngRoute']);
+app.config(['$qProvider', function ($qProvider) {
+    $qProvider.errorOnUnhandledRejections(false);
+}]);
 app.config(function ($routeProvider, $locationProvider) {
     $routeProvider.when('/', {
         templateUrl: 'components/home.html',

@@ -1,5 +1,5 @@
 app.controller('manCtrl', function ($scope, $http) {
-    $http.get('http://192.168.33.10/index.php/man_products')
+    $http.get(nodeVariable + 'man_products')
         .then(function(response) {
             $scope.product_man = response.data;
    
@@ -32,11 +32,11 @@ app.controller('manCtrl', function ($scope, $http) {
                 console.log($scope.product_man);
             }
         });
-    $http.get('http://192.168.33.10/index.php/woman')
+    $http.get(nodeVariable + 'woman')
         .then(function(response) {
             $scope.sex_category_woman = response.data;
         });
-    $http.get('http://192.168.33.10/index.php/man')
+    $http.get(nodeVariable + 'man')
         .then(function(response) {
             $scope.sex_category_man = response.data;
             setTimeout(function() {
@@ -45,7 +45,7 @@ app.controller('manCtrl', function ($scope, $http) {
                     $scope.id_category[i].onclick = function () {
                         $scope.id_category_attr = document.getElementsByClassName('id_category')[i].getAttribute('data-id');
                         console.log($scope.id_category_attr);
-                        $http.get('http://192.168.33.10/index.php/product_categories/' + $scope.id_category_attr)
+                        $http.get(nodeVariable + 'product_categories/' + $scope.id_category_attr)
                             .then(function(response) {
                                 $scope.product_man = response.data;
                                 console.log($scope.product_man);
@@ -174,9 +174,4 @@ app.controller('manCtrl', function ($scope, $http) {
             document.getElementsByClassName('checkmark1')[j].style.backgroundColor = "#fff";
         }
     }
-
-    var dropdown_btn = document.getElementsByClassName('dropdown-btn')[1];
-        dropdown_btn.onclick = function () {
-            dropdown_btn.style.listStyleType = "disc";
-        }
 })

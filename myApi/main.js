@@ -32,30 +32,31 @@ serverDomain.run(function() {
         res.send('Welcome to my site :D');
     });
 
-  
-
-
-
-/*    app.get("/users", function(req , res){
-        var query = "select * from Users";
-        console.log("USERS");
-        res.send('USERS');
-        // executeQuery (res, query);
-    });*/
-
     var womanProductsRouter = require('./routes/woman_products');
     app.use('/woman_products', womanProductsRouter);
-    var manCategoriesRouter = require('./routes/man_categories');
-    app.use('/man_categories', manCategoriesRouter);
-    var womanCategoriesRouter = require('./routes/woman_categories');
-    app.use('/woman_categories', womanCategoriesRouter);
+
     var manProductsRouter = require('./routes/man_products');
     app.use('/man_products', manProductsRouter);
-        var productCategoriesRouter = require('./routes/product_categories');
+
+    var manCategoriesRouter = require('./routes/man');
+    app.use('/man', manCategoriesRouter);
+
+    var womanCategoriesRouter = require('./routes/woman');
+    app.use('/woman', womanCategoriesRouter);
+
+    var productCategoriesRouter = require('./routes/product_categories');
     app.use('/product_categories', productCategoriesRouter);
-    var usRouter = require('./routes/products');
-    app.use('/products', usRouter);
+
+    var productRouter = require('./routes/products');
+    app.use('/products', productRouter);
+
      var orderItemRouter = require('./routes/order_items');
     app.use('/order_items', orderItemRouter);
+
+    var loginRouter = require('./routes/login');
+    app.use('/login', loginRouter);
+
+    var cartRouter = require('./routes/cart');
+    app.use('/cart', cartRouter);
 
 });
